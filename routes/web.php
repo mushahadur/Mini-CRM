@@ -13,17 +13,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
- Route::get('lang/{lang}',[LanguageController::class, 'switchLang'])->name('lang.switch');
- 
-//Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
-
-
 
 Route::get('/dashboard', function () {
     return view('admin.home.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::resource('companies', CompanyController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile.index');
@@ -38,9 +31,10 @@ Route::resource('companies', CompanyController::class);
 // for Employee controller
 Route::resource('employees', EmployeeController::class);
 
-//Employees Assign A Company
-Route::get('/employees-assign', [AssignedEmployee::class, 'index'])->name('abcd');
-Route::get('/employees-login', [AssignedEmployee::class, 'employeeDashboard'])->name('employee.login');
+
+
+//Email Notification when assign a new employee
+Route::get('lang/{lang}',[LanguageController::class, 'switchLang'])->name('lang.switch');
 
 });
 
