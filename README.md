@@ -18,6 +18,14 @@
  - Follow Single Responsibility Principle.
  - Follow DRY (Don't Repeat Yourself) principle.
 
+- Update
+  - Use Request Class
+  - Redirect to login from register
+  - Route Model Binding
+  - Create & Update Form need to refactor(DRY)
+
+
+
 
 <br/>
 <br/>
