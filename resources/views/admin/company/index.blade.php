@@ -36,16 +36,16 @@
                                 <td>{{$company->name}}</td>
                                 <td>{{$company->email}}</td>
                                 <td>{{$company->website}}</td>
-                                <td><img src="{{asset('storage/Company-logos/'.$company->logo)}}" alt="{{$company->logo}}" height="30" width="40"/></td>
+                                <td><img src="{{asset('/storage/Company-logos/'.$company->logo)}}" alt="{{$company->logo}}" height="30" width="40"/></td>
                                 <td class="d-flex justify-content-start">
                                     <a href="{{ route('companies.show', $company->id) }}" class="btn btn-outline-info mx-1" >
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-outline-success mx-1">
+                                    <a href="{{ route('companies.edit', $company) }}" class="btn btn-outline-success mx-1">
                                         @method('PUT')
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                     <form id="delete-form" action="{{ route('companies.destroy', $company->id) }}" method="POST" >
+                                     <form id="delete-form" action="{{ route('companies.destroy', $company) }}" method="POST" >
                                          @csrf
                                          @method('DELETE')
                                             <button class="btn btn-outline-danger mx-1" type="submit"><i class="fa fa-trash"></i></button>

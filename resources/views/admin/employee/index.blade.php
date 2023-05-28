@@ -40,13 +40,13 @@
                                 <td>{{$employee->phone}}</td>
                                 <td>{{$employee->company->name}}</td>
                                 <td class="d-flex justify-content-start">
-                                    <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-outline-info mx-1" >
+                                    <a href="{{ route('employees.show', $employee) }}" class="btn btn-outline-info mx-1" >
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-outline-success">
+                                    <a href="{{ route('employees.edit', $employee) }}" class="btn btn-outline-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <form id="delete-form" action="{{ route('employees.destroy', $employee->id) }}" method="POST" >
+                                    <form id="delete-form" action="{{ route('employees.destroy', $employee) }}" method="POST" >
                                         @csrf
                                         @method('DELETE')
                                            <button class="btn btn-outline-danger mx-1" type="submit"><i class="fa fa-trash"></i></button>

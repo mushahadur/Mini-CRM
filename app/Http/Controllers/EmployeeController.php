@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\EmployeeRequest;
 use App\Mail\EmployeeAssignNotification;
+use App\Models\Employee;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 
 class EmployeeController extends Controller
@@ -22,7 +24,7 @@ class EmployeeController extends Controller
     {
         $employee = $this->employeeRepositories->All();
        //dd($employee);
-        return view('admin.employee.index',compact('employee'));
+        return view('admin.employee.index', ['employee' => $employee]);
     }
 
     /**
@@ -37,10 +39,8 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-
-        $this->employeeRepositories->requestValidate($request);
         $data = $this->employeeRepositories->storeData($request);
 
         Mail::to(request('email'))->send(new EmployeeAssignNotification($data));
@@ -51,18 +51,17 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Employee $employee)
     {
-        $employee = $this->employeeRepositories->findById($id);
+        //$employee = $this->employeeRepositories->findById($id);
         return view('admin.employee.detail')->with('employee', $employee);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employee $employee)
     {
-        $employee = $this->employeeRepositories->findById($id);
         $company = $this->employeeRepositories->CompanyAllData();
         return view('admin.employee.edit',compact('company'))->with('employee', $employee);
     }
@@ -70,11 +69,10 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
-        $this->employeeRepositories->requestValidate($request);
 
-        $this->employeeRepositories->updateData($request, $id);
+        $this->employeeRepositories->updateData($request, $employee);
 
         return redirect('/employees')->with('message', 'Employees Update successfully.');
     }
@@ -82,13 +80,11 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Employee $employee)
     {
-        $this->employeeRepositories->delete($id);
+         $employee->delete();
         return redirect(route('employees.index'));
     }
-
-
 
 
 }

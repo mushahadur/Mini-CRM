@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Http\Requests\CompanyRequest;
 use Illuminate\Support\Facades\Redirect;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 
@@ -17,7 +19,6 @@ class CompanyController extends Controller
     public function index()
     {
         $company = $this->companyRepository->All();
-
         return view('admin.company.index')->with( 'companies', $company);
     }
 
@@ -29,49 +30,43 @@ class CompanyController extends Controller
         return view('admin.company.create');
     }
 
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        $this->companyRepository->requestValidate($request);
         $this->companyRepository->storeData($request);
-
         return redirect('/companies')->with('message', 'Company info create successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Company $company)
     {
-        $company = $this->companyRepository->findById($id);
         return view('admin.company.detail')->with('company', $company);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Company $company)
     {
-        $company = $this->companyRepository->findById($id);
         return view('admin.company.edit')->with('company', $company);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CompanyRequest $request, Company $company)
     {
-        $this->companyRepository->requestValidateForUpdate($request);
-        $this->companyRepository->updateData($request, $id);
+        $this->companyRepository->updateData($request, $company);
         return Redirect::route('companies.index');
-        //return redirect('/companies')->with('message', 'Company Update successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        $this->companyRepository->delete($id);
+    public function destroy(Company $company)
+    {   
+        $company->delete();
         return redirect(route('companies.index'));
     }
 }
