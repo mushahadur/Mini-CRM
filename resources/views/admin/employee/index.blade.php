@@ -1,17 +1,44 @@
 @extends('admin.layouts.app')
 
 @section('body')
-<div class="row">
-    <div class="col-md-12">
-        <div class="card py-3">
-            <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3"> <a class="btn btn-primary" href="{{ route('employees.create') }}">{{ __('employee.save') }}</a></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card py-3">
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"> 
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employeeAddModal">
+                        {{ __('employee.save') }}
+                    </button>
+                    {{--  <a class="btn btn-primary" href="{{ route('employees.create') }}">{{ __('employee.save') }}
+                    </a>  --}}
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
+
+
+   
+    <!-- Employee Add Modal -->
+    {{--  <div class="modal fade" id="employeeAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ __('employee.employee_add') }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            @include('admin.employee._form')
+          </div>
+        </div>
+      </div>
+    </div>  --}}
+
+
     <div class="row">
         <div class="col-12">
             <div class="card">
