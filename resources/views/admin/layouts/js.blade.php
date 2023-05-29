@@ -1,5 +1,5 @@
 <!-- JAVASCRIPT -->
-{{--  <script src="{{asset('/')}}admin/assets/libs/jquery/jquery.min.js"></script>  --}}
+<script src="{{asset('/')}}admin/assets/libs/jquery/jquery.min.js"></script>
 <script src="{{asset('/')}}admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('/')}}admin/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="{{asset('/')}}admin/assets/libs/simplebar/simplebar.min.js"></script>
@@ -33,10 +33,10 @@
 <!-- App js -->
 <script src="{{asset('/')}}admin/assets/js/app.js"></script>
 
+<!-- MDB js -->
+{{--  <script src="{{asset('/')}}admin/assets/js/mdb.min.js"></script>  --}}
+
 <!-- Toastr script CDN -->
 <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 <!-- Toastr Scripts render -->
-
-
-   

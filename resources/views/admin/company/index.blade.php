@@ -48,7 +48,7 @@
                                      <form id="delete-form" action="{{ route('companies.destroy', $company) }}" method="POST" >
                                          @csrf
                                          @method('DELETE')
-                                            <button class="btn btn-outline-danger mx-1" type="submit"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-outline-danger mx-1" type="submit" ><i class="fa fa-trash"></i></button>
                                      </form>
                                 </td>
                             </tr>
@@ -59,4 +59,10 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
+
+
+   
+       
+
+
 @endsection
