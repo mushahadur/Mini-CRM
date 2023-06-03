@@ -23,6 +23,7 @@
   - Redirect to login from register
   - Route Model Binding
   - Create & Update Form need to refactor(DRY)
+  - Accessor & Mutator
 
 
 
