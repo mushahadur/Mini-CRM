@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('body')
-<<<<<<< HEAD
+
 <div class="row">
     <div class="col-md-12">
         <div class="card py-3">
@@ -82,21 +82,7 @@
             <div class="col-md-3"> 
                 <a class="btn btn-primary" href="{{ route('employees.create') }}">{{ __('employee.save') }}</a>
             </div>
-=======
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card py-3">
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"> 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employeeAddModal">
-                        {{ __('employee.save') }}
-                    </button>
-                    {{--  <a class="btn btn-primary" href="{{ route('employees.create') }}">{{ __('employee.save') }}
-                    </a>  --}}
-                </div>
->>>>>>> e713dd9e35e39d670019adcadc4c8e73f9790e70
+
 
             </div>
         </div>
