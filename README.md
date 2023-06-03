@@ -24,6 +24,8 @@
   - Route Model Binding
   - Create & Update Form need to refactor(DRY)
   - Accessor & Mutator
+  - Add division & district fields In the employee table. (By new migration).
+  - Add division & district fields In the employee table. (By new migration).
 
 
 
