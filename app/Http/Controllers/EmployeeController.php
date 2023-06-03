@@ -20,11 +20,29 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $employee = $this->employeeRepositories->All();
-       //dd($employee);
-        return view('admin.employee.index', ['employee' => $employee]);
+        
+      $employees = Employee::with('company');
+
+      if (!is_null($request->query('company_id'))) {
+        $employees->where('company_id', $request->query('company_id'));
+    }
+    if (!is_null($request->query('mail'))) {
+        $employees->where('email', 'like', '%@'. $request->query('mail').'.com');
+    }
+    if (!is_null($request->query('divisions'))) {
+        $employees->where('divisions', $request->query('divisions'));
+    }
+    if (!is_null($request->query('districts'))) {
+        $employees->where('districts', $request->query('districts'));
+    }
+
+    $employees = $employees->get();
+    $companies = $this->employeeRepositories->CompanyAllData();
+
+
+        return view('admin.employee.index', compact('companies','employees'));
     }
 
     /**

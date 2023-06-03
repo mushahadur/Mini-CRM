@@ -16,6 +16,9 @@ return[
     'employee_name' => 'কর্মচারীর নাম',
     'employee_email' => 'কর্মচারীর ইমেইল',
     'employee_phone' => 'কর্মচারীর ফোন',
+    
+    'employee_division' => 'কর্মচারীর বিভাগ',
+    'employee_district' => 'কর্মচারীর জেলা',
 
     'save' => 'কর্মচারী সংরক্ষণ করুন',
  ];

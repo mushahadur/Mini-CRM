@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\CompanyRequest;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Redirect;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 
@@ -65,8 +66,15 @@ class CompanyController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Company $company)
-    {   
+    { 
+      //dd($company);
+        $running = Employee::where('company_id', $company->id)->exists();
+        //dd($running);
+        if($running){
+            return redirect()->back()->with('message', 'Sorry.. You can not delete this company, because some one assign already this company');
+        }
         $company->delete();
         return redirect(route('companies.index'));
+
     }
 }

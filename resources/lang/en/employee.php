@@ -16,6 +16,8 @@ return[
     'employee_name' => 'Employee Name',
     'employee_email' => 'Employee Email',
     'employee_phone' => 'Employee Phone',
+    'employee_division' => 'Employee Division',
+    'employee_district' => 'Employee District',
 
     'save' => 'Save New Employee',
  ];

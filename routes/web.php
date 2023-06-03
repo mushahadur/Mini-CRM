@@ -23,17 +23,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-// for Company controller
-Route::resource('companies', CompanyController::class);
+    // for Company controller
+    Route::resource('companies', CompanyController::class);
 
 
-// for Employee controller
-Route::resource('employees', EmployeeController::class);
+    // for Employee controller
+    Route::resource('employees', EmployeeController::class);
+
+    //Route::get('/employees/filter', [EmployeeController::class, 'filter'])->name('employees.filter');
 
 
 
-//Email Notification when assign a new employee
-Route::get('lang/{lang}',[LanguageController::class, 'switchLang'])->name('lang.switch');
+    //Email Notification when assign a new employee
+    Route::get('lang/{lang}',[LanguageController::class, 'switchLang'])->name('lang.switch');
 
 });
 

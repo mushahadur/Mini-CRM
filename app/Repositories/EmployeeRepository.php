@@ -23,6 +23,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface{
         $employee->email        = $request->email;
         $employee->phone        = $request->phone;
         $employee->company_id   = $request->company_id;
+        $employee->divisions   = $request->divisions;
+        $employee->districts   = $request->districts;
         $employee->save();
         return $employee;
     }

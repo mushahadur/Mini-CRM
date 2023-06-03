@@ -7,11 +7,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 p-3">
-                            <img src="{{asset($employee->company->logo)}}" alt="{{ $employee->company->name }}" height="290" width="310">
+                            <img src="{{asset('storage/Company-logos/'.$employee->company->logo)}}" alt="{{ $employee->company->name }}" height="290" width="310">
                             <h5 class="text-justify py-3"> {{ $employee->company->name }} </h5>
                         </div>
                         <div class="col-md-6 pt-5">
-                            <h4>Employee Name: {{$employee->first_name}}   {{$employee->last_name}}  </h4>
+                            <h4>Employee Name: {{$employee->first_name_last_name}}  </h4>
                             <hr>
                             <h5>Employee Email: {{ $employee->email }} </h5>
                             <hr>

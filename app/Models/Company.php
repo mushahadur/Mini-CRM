@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Company extends Model
 {
@@ -12,6 +13,10 @@ class Company extends Model
     public function employee()
     {
         return $this->hasMany(Employee::class);
+    }
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucwords($value);
     }
 
 }

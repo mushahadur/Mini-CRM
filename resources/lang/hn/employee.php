@@ -18,5 +18,9 @@ return[
     'employee_website' => 'Employee Website',
     'employee_logo' => 'Employee Logo',
 
+    
+    'employee_division' => 'Employee Division',
+    'employee_district' => 'Employee District',
+
     'save' => 'Save New Employee',
  ];
