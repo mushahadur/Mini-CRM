@@ -25,7 +25,7 @@
   - Create & Update Form need to refactor(DRY)
   - Accessor & Mutator
   - Add division & district fields In the employee table. (By new migration).
-  - Add division & district fields In the employee table. (By new migration).
+  - Build a filter (Popup) where you can filter employees by company, division, district and their email extension(ex: gmail, yahoo, outlook).
 
 
 
