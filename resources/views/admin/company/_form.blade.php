@@ -1,9 +1,9 @@
     @if (isset($company))
-        <form action="{{ route('companies.update', $company) }}" method="Post" enctype="multipart/form-data">
+        <form action="{{ route('companies.update', $company) }}" method="Post" enctype="multipart/form-data"  id="my-form">
             @csrf
             @method('PUT')
     @else
-        <form action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
+        <form   action="{{ route('companies.store') }}" method="Post" enctype="multipart/form-data">
             @csrf
     @endif
 
@@ -61,10 +61,10 @@
             @enderror
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-success">{{ __('company.save') }}</button>
-            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" id="saveCompany" class="btn btn-primary">{{ __('company.save') }}</button>
+          </div>
         </div>
     @endif
 
